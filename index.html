@@ -1,5 +1,281 @@
-<html>
-<title>Dolores Joya</title>
-<head></head>
-<body></body>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>          
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="assets/ico/favicon.png">
+<title>Dolores Joya - Sr. UI/UX Designer & Creative Coder Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link href="dist/css/bootstrap.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/wow.min.js"></script>
+<style type="text/css">
+  #Container .mix{
+  display: none;
+}
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* TIMED BLUR THRU CSS
+body {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+body.blurred {
+  pointer-events: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+  -o-filter: blur(5px);
+  filter: blur(5px);
+}*/
+
+body{
+  font-family: 'Helvetica', arial, sans-serif;
+  background-color: #141318;
+  background-image: url("img/animated-bg-shooting-star.gif");
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: #fff;
+}
+
+a {
+  opacity: .5;
+}
+a:active,
+a:hover {
+  outline: 0;
+  opacity: 1;
+  z-index:0;
+  -webkit-filter: blur(5px);
+}
+
+h3 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: .2em;
+}
+
+h1 {
+  color: #fff;
+  font-size: 58px;
+  font-weight: 200;
+  letter-spacing: .24em;
+}
+
+.footer{
+  color: #5b585f;
+}
+.controls{
+  padding: 2%;
+  background: #333;
+  color: #eee;
+}
+
+label{
+  font-weight: 300;
+  margin: 0 .4em 0 0;
+}
+
+button{
+  display: inline-block;
+  padding: .4em .8em;
+  background: #666;
+  border: 0;
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: .40;
+}
+
+button.active{
+  background: #68b8c4;
+}
+
+button:focus{
+  outline: 0 none;
+}
+
+button + label{
+  margin-left: 1em;
+}
+
+.container{
+  padding: 20px;
+  margin: 300px;
+  /*padding: 2% 2% 10%;*/
+  text-align: justify;
+  font-size: 0.1px;
+  background: #68b8c4;
+  -webkit-backface-visibility: hidden;
+}
+
+.container:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.container .mix,
+.container .gap{
+  display: inline-block;
+  width: 49%;
+}
+
+.container .mix{
+  text-align: left;
+  background: #03899c;
+  margin-bottom: -2%;
+  display: none;
+}
+
+.container .mix.category-1{
+  border-top: 2px solid limegreen;
+}
+
+.container .mix.category-2{
+  border-top: 2px solid yellow;
+}
+
+.container .mix:after{
+  content: attr(data-myorder);
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 4% 6%;
+  font-weight: 700;
+}
+
+.container .mix:before{
+  content: '';
+  display: inline-block;
+  padding-top: 60%;
+}
+
+@media all and (min-width: 420px){
+  .container .mix,
+  .container .gap{
+    width: 32%;
+  }
+}
+
+@media all and (min-width: 640px){
+  .container .mix,
+  .container .gap{
+    width: 23.5%;
+  }
+}
+</style>
+
+<script type="text/javascript">
+// On document ready:
+
+$(function(){
+
+  // Instantiate MixItUp:
+
+  $('#Container').mixItUp();
+
+});
+
+/* NEEDED FOR TIMED BLUR 
+setTimeout(function(){
+    $('body').addClass('blurred');
+}, 2000);*/
+
+</script>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<center>
+<div>
+      <br><br><br>
+      <h1>Sr. UX Designer <br>+<br>Creative Coder</h1><br>
+      Portfolio Coming Soon.
+      <br>
+      <!--
+      <button class="filter" data-filter="all">All</button>
+      <button class="sort" data-sort="my-order:asc">Ascending Order Cinder</button>
+      <button class="sort" data-sort="my-order:desc">Descending OpenFrameworks</button>
+      <button class="filter" data-filter=".category-1">Processing</button>
+      <button class="filter" data-filter=".category-2">Arduino</button>
+      <button class="filter" data-filter=".category-2">Python</button>
+      <button class="filter" data-filter=".category-2">OpenGL</button>
+      <button class="filter" data-filter=".category-2">C++</button>
+      <button class="filter" data-filter=".category-2">RasberryPi</button>
+      <br><br><br><br><br>
+
+      <div id="Container">
+        <div class="mix category-1" data-my-order="1"><a href=""><img src="img/circle.png" class="wow rubberBand" width="50"></a></div>
+        <div class="mix category-1" data-my-order="1" width="20"><a href=""><img src="img/circle.png" width="30"></a></div>
+        <div class="mix category-2" data-my-order="1" width="10"><a href=""><img src="img/circle.png" width="70"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="30"></a></div>
+        <div class="mix category-2" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="130"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="80"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="60"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="230"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="130"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="90"></a></div>
+        <div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/circle.png" width="110"></a></div>
+        <!--<div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/co-paypal.png"></a></div>
+        <div class="mix category-1" data-my-order="2" width="30"><img src="img/co-appd.png"></div>
+        <div class="mix category-2" data-my-order="3" width="30"><img src="img/co-pph.png"></div>
+        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-amz-ph.png"></div>
+        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-ibm.png"></div>
+        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-amz-kf.png"></div>//-->
+      </div>
+      
+            <!-- FOOTER -->
+            <footer>
+              <p class="footer">&copy; &middot; 2015 - DoloresJoya@GmailDotCom</p>
+            </footer>
+
+  </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <![endif]-->
+
+
+  <script>
+      wow = new WOW(
+    {
+      boxClass:     'wow',      // default
+      animateClass: 'animated', // default
+      offset:       0,          // default
+      mobile:       true,       // default
+      live:         true        // default
+    }
+  )
+    wow.init();
+  </script> 
+  </body>
 </html>
