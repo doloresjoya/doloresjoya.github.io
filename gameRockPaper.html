@@ -1,0 +1,35 @@
+<html>
+	<title></title>
+	<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.4/p5.min.js"></script>
+        <script>
+            
+            
+            function setup(){
+                createCanvas(1200, 750);
+                String = "This project consists of prototype design along with text."
+                s = "The quick brown fox jumped over the lazy dog.";
+            }
+            
+            function draw(){
+                
+                fill(50);
+                text(s, 10, 10, 70, 80); // Text wraps within text box
+                
+                if(mouseIsPressed){
+                    fill(255);
+                    //textSize(20);
+                    //text("word", 10, 10, 70, 80);
+                } else {
+                    fill(100);
+                }
+                
+                background(255);
+                ellipse(mouseX, mouseY, 80, 80);
+            }
+        </script>
+	</head>
+	<body>
+		
+	</body>
+</html>

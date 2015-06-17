@@ -1,0 +1,1 @@
+var s=function(n){var a=100,c=100,e=0;n.setup=function(){n.createCanvas(700,410)},n.draw=function(){0===e?(n.background(0),n.fill(255),n.ellipse(a,c,50,50),e=255):e=0}};

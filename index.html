@@ -5,48 +5,31 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="assets/ico/favicon.png">
-<title>Dolores Joya - Sr. UX Designer & Creative Coder Portfolio</title>
+<title>Dolores Joya - Sr. UI/UX Designer & Creative Coder Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link href="dist/css/bootstrap.css" rel="stylesheet">
-<link href="css/animate.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="js/jquery.mixitup.min.js"></script>
-<script src="js/wow.min.js"></script>
 <style type="text/css">
-
-  #Container .mix{
-  display: none;
+html {
+overflow: -moz-scrollbars-vertical; 
+overflow-y: scroll;
+}
+    
+#Container .mix{
+display: none;
 }
 *{
+  vertical-align: middle;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* TIMED BLUR THRU CSS
-body {
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-}
-
-body.blurred {
-  pointer-events: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -ms-filter: blur(5px);
-  -o-filter: blur(5px);
-  filter: blur(5px);
-}*/
 
 body{
+
   font-family: 'Helvetica Neue', arial, sans-serif;
   color: #fff;
 
@@ -61,14 +44,20 @@ body{
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+
 }
 
 a {
   opacity: 1;
+  color: aqua;
   
 }
 a:active {
-  -webkit-filter: blur(0px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 a:hover {
   outline: 0;
@@ -80,6 +69,15 @@ a:hover {
   transition: all .5s ease-in-out;
 }
 
+.imgblur {
+  outline: 0;
+  opacity: 1;
+  -webkit-filter: blur(10px);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
 
 h3 {
   color: #fff;
@@ -101,6 +99,8 @@ h3 {
 * html #footer {
    position:absolute;
    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+   
+
 }
 
 .controls{
@@ -119,11 +119,11 @@ button{
   background: transparent;
   border: 0;
   color: #fff;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 300;
   border-radius: 4px;
   cursor: pointer;
-  opacity: .60;
+  opacity: .50;
 }
 
 button.active{
@@ -148,63 +148,12 @@ button + label{
 .container{
   text-align: justify;
   font-size: 0.1px;
-  /*background: #68b8c4;*/
+  background: #68b8c4;
   -webkit-backface-visibility: hidden;
-
 }
 
-.container:after{
-  content: '';
-  display: inline-block;
-  width: 100%;
-}
+.item{margin: 25px;}
 
-.container .mix,
-.container .gap{
-  display: inline-block;
-  width: 49%;
-}
-
-.container .mix{
-  text-align: left;
-  background: #fff;
-  margin-bottom: -2%;
-  display: none;
-  border: 2px solid;
-}
-
-.container .mix.category-1{
-  border: 2px solid;
-}
-
-.container .mix.category-2{
-  border: 2px solid white;
-}
-
-.container .mix:after{
-  content: attr(data-myorder);
-  color: white;
-  font-size: 16px;
-  display: inline-block;
-  vertical-align: top;
-  padding: 4% 6%;
-  font-weight: 700;
-}
-
-.container .mix:before{
-  content: '';
-  display: inline-block;
-  padding-top: 60%;
-}
-
-.container .item{
-  text-align: left;
-  background: #03899c;
-  margin-bottom: 2%;
-  padding: 4%;
-  vertical-align: top;
-  /*display: none; <-- uncomment this rule for use with MixItUp*/
-}
 
 @media all and (min-width: 420px){
   .container .mix,
@@ -228,14 +177,119 @@ button + label{
   margin-left: 110px;
   margin-right: 110px;
 }
+   
+.contract{
+    display: none;
+    border:1px solid #000;
+    height:30px;
+    width:290px;
+    margin-left:10px;
+}
+.expand{
+    padding: .4em .8em;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 300;
+    cursor: pointer;
+    opacity: .50;
+    width: 200px;
+    margin: 25px;
+}
+
+.tool{
+    padding: .4em .8em;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 300;
+    cursor: pointer;
+    opacity: .50;
+    width: 200px;
+    margin: 25px;
+}
+    
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  text-align: center;
+  line-height: 200px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}
+
+.foo img:last-child{display:none}
+.foo:hover img:first-child{display:none}
+.foo:hover img:last-child{display:inline-block}
+    
 </style>
 
 <script type="text/javascript">
+
 function ofParticleCloud(){
-  document.body.style.backgroundColor="#450000";
-  resizer.getElementById("imgParticleCloud")
+  document.body.style.backgroundColor="#450000"
 }
 
+    
 function mapTribe(){
   document.body.style.backgroundColor="#481c7e"
 }
@@ -247,25 +301,37 @@ function fashTech(){
 function teaGarden(){
   document.body.style.backgroundColor="#83f59e"
 }
-
-function codeSf(){
-  document.body.style.backgroundColor="#c5e0b5"
+    
+function over(){
+  document.body.style.backgroundColor="#f15e18"
 }
 
 function heart(){
-  document.body.style.backgroundColor="#f3cfa0"
+  document.body.style.backgroundColor="#000000"
 }
 
 function pos(){
-  document.body.style.backgroundColor="#f2f2f2"
+  document.body.style.backgroundColor="#252525"
 }
 
 function wearEar(){
-  document.body.style.backgroundColor="#f0d5d0"
+  document.body.style.backgroundColor="#fbc583"
 }
-
-function appData(){
-  document.body.style.backgroundColor="#353535"
+    
+function aFire() {
+document.body.style.backgroundColor="#353535"
+}
+    
+function appData() {
+document.body.style.backgroundColor="#353535"
+}
+    
+function flight(){
+document.body.style.backgroundColor="#305396"
+}
+    
+function ppl(){
+  document.body.style.backgroundColor="#305396"
 }
 </script>
 
@@ -273,18 +339,24 @@ function appData(){
 // On document ready:
 
 $(function(){
-
-  // Instantiate MixItUp:
-
-  $('#Container').mixItUp();
+// Instantiate MixItUp:
+$('#Container').mixItUp({
+	animation: {
+		effects: 'fade stagger(50ms)',
+		staggerSequence: function(i){
+			return (2*i) - (5*((i/3) - ((1/3) * (i%3))));
+		}
+	}
+});
 
 });
 
+    
 /* NEEDED FOR TIMED BLUR 
 setTimeout(function(){
     $('body').addClass('blurred');
-}, 2000);*/
-
+}, 2000);
+*/
 </script>
 </head>
 <!-- NAVBAR
@@ -295,140 +367,262 @@ setTimeout(function(){
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        DOLORES JOYA
+        DOLORES JOYA: UX DESIGNER & CREATIVE CODER
       </a>
 </nav>
 
 
-<!-- Time and Date 
-<small><p id="demo"></p></small>
+<!-- Time and Date
+<small><p id="demo" align="right"></p></small>
 
 <script>
 var d = new Date();
 document.getElementById("demo").innerHTML = d;
 </script>
-//-->
+//--> 
 
 <center>
-<div class="content">  
+<div>  
       <div class="navbox">
       <button class="filter" data-filter="all">Show All</button>
-      <!--<button class="sort" data-sort="my-order:asc"><img src="img/ico-ham.png" width="35"><br><br>Timeline</button>
-      <button class="sort" data-sort="my-order:desc"><img src="img/ico-ham.png" width="35"><br><br>Descending</button>//-->
+      <!--<button class="sort" data-sort="my-order:asc" onclick="$('.expand').show();"><img src="img/ico-aperature.png" width="35"><br><br>View Details</button>//-->
+          
+      <!--<button class="sort" data-sort="my-order:desc" onclick="$('#date').hide();"><img src="img/ico-ham.png" width="35"><br><br>Device</button>//-->
       <button class="filter" data-filter=".category-1"><img src="img/ico-ux.png" width="35"><br><br>UI/UX Design</button>
-      <button class="filter" data-filter=".category-6"><img src="img/ico-aperature.png" width="35"><br><br>Projection Maps</button>
+      <!--<button class="filter" data-filter=".category-6"><img src="img/ico-aperature.png" width="35"><br><br>Projection Maps</button>//-->
       <button class="filter" data-filter=".category-5"><img src="img/ico-prototype.png" width="35"><br><br>Creative Coding</button>
-      <button class="filter" data-filter=".category-4"><img src="img/ico-ham.png" width="35"><br><br> Tools</button>
-      <button class="filter" data-filter=".category-2"><img src="img/ico-wearables.png" width="35"><br><br>Wearables</button>
+      <button class="filter" data-filter=".category-4" onclick="$('.tool').show();"><img src="img/ico-ham.png" width="35"><br><br> Tools</button>
+      <!--<button class="filter" data-filter=".category-2"><img src="img/ico-wearables.png" width="35"><br><br>Wearables</button>//-->
       <button class="filter" data-filter=".category-3"><img src="img/ico-tech.png" width="35"><br><br>Prototypes</button>
       <br>
       </div>
 
       <div id="Container">
-        <!--
-        data-toggle="modal" data-target="#myModal"
-        data-toggle="modal" data-target="#projectionTribal"
-        data-toggle="modal" data-target="#myModal"
-        data-toggle="modal" data-target="#projectionTribal"
-        data-toggle="modal" data-target="#myModal"
-        //-->
-        <div class="mix category-2" data-my-order="1"><a href="#" type="button" onMouseOver="wearEar()"><img src="img/joyas-earbuds03.png" class="wow rubberBand" width="150"></a></div>
-        <div class="mix category-1" data-my-order="1"><a href="#" onMouseOver="pos()"><img src="img/pos.png" width="80"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-of.png" width="50"></a></div>
-        <div class="mix category-6" data-my-order="2"><a href="#" onMouseOver="heart()"><img src="img/proj-heart.png" width="170"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-firefly.png" width="50"></a></div>
-        <div class="mix category-6" data-my-order="3"><a href="#" onMouseOver="codeSf()"><img src="img/proj-sf.png" width="150"></a></div>
-        <div class="mix category-6" data-my-order="4" width="30"><a href="#" onMouseOver="teaGarden()"><img src="img/proj-japenese.png" width="100"></a></div>
-        <div class="mix category-6" data-my-order="5" width="30"><a href="#"><img src="img/proj-quetzel.png" width="150"></a></div>
-        <div class="mix category-6" data-my-order="6" width="30"><a href="#" alt="Fashion Tech SF"><img src="img/proj-fashtech.png" onMouseOver="fashTech()" width="160"></a></div>
-        <div class="mix category-6" data-my-order="7" width="30"><a href="#"  onMouseOver="mapTribe()" type="button"><img src="img/proj-tribe.png" width="100"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-bootstrap.png" width="50"></a></div>
-        <div class="mix category-5" data-my-order="8" width="30"><a href="#" alt="Openframeworks Particles" onMouseOver="ofParticleCloud()" type="button"><img src="img/of-tris.png" width="130" id="imgParticleCloud"></a></div>
-        <div class="mix category-1" data-my-order="9" width="30"><a href="#" type="button"><img src="img/amz-logo.png" width="150"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-cinder.png" width="50"></a></div>
-        <div class="mix category-1" data-my-order="10" width="30"><a href="" type="button"><img src="img/pp-lg.png" width="100"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-git.png" width="50"></a></div>
-        <div class="mix category-1" data-my-order="10" width="30"><a href="" type="button"><img src="img/brand-io.png" width="100"></a></div>
-        <div class="mix category-1" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/app-ddata.png" width="180"></a></div>
-        <div class="mix category-4" data-my-order="10" width="30"><a href="#" onMouseOver="appData()" type="button"><img src="img/ico-tool-arduino.png" width="50"></a></div>
+        <div class="mix category-1" data-my-order="18" width="30">
+            <div id="appd" class="item">
+            <a class="foo" href="#" onMouseOver="appData()">
+                <img src="img/aapd01.png" width="300"/>
+                <img src="img/aapd02.gif" width="300"/>
+            </a>
+            <div class="expand">AppDynamics SAAS App</div>
+            <div id="dyn" class="expand" >
+                Principal UI Designer for AppDynamics designing interface experience for flagship product. 
+                <a href="https://appdynamics.wistia.com/medias/dhwq2zwb14" target="blank">AppDynamics Mobile Video</a><br>
+                <a href="http://doloresjoya.com/assets/pdf/UI-Design-AD-DJoya.pdf" target="_blank">Core Dashboard Designs PDF</a>
+            </div>
+            </div>
+          </div> 
+    
+        <div class="mix category-1" data-my-order="15" width="130" onMouseOver="ppl()" id="pp" style="position: relative; left: 10px;">
+            <div id="paypll" class="item">
+            <a class="foo" href="#" onMouseOver="appData()" id="ppul">
+                <img src="img/pp-usability.png" width="300"/>
+                <img src="img/pp-usability02.gif" width="300"/>
+            </a>
+            <div class="expand">PayPal Usability Lab Studies</div>
+            <div id="lab" class="expand" >
+                Sr. UX Designer for PayPal designing interactions & prototypes for usability lab testing.
+            </div>
+            </div>
+        </div>
         
-
-
+        <div class="mix category-1" data-my-order="13" width="30">
+            <div id="amazon" class="item">
+            <a class="foo" href="#" onMouseOver="aFire()" data-toggle="modal" data-target="#myModal" type="button">
+                <img src="img/amz-logo.png" width="300" id="fire"/>
+                <img src="img/amz-logo02.gif" width="300"/>
+            </a>
+            <div class="expand">Amazon Fire Phone</div>
+            <div id="amz" class="expand">
+                Visual/UX Design for Amazon Lab 126 designing interaction workflows for the Fire phone.<br>
+                <a href="http://doloresjoya.com/video/Email_Attachment_Open_Panel.mp4" target="_blank">Motion Tilt Ix</a>
+            </div>
+            </div>
+        </div>
+          
+        <div class="mix category-3" data-my-order="20">
+            <div id="earbuds" class="item">
+            <a class="foo" href="#" onMouseOver="wearEar()">
+                <img src="img/joyas-earbuds03.png" width="300"/>
+                <img src="img/joyas-earbuds01.gif" width="300"/>
+            </a>
+            <div class="expand">Case Study: Wireless Earbud Earrings</div>
+            <div id="ear" class="expand">
+                Prototype for wireless music controller.
+            </div>
+            </div>
+        </div>
         
-        <!--<div class="mix category-1" data-my-order="1" width="30"><a href=""><img src="img/co-paypal.png"></a></div>
-        <div class="mix category-1" data-my-order="2" width="30"><img src="img/co-appd.png"></div>
-        <div class="mix category-2" data-my-order="3" width="30"><img src="img/co-pph.png"></div>
-        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-amz-ph.png"></div>
-        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-ibm.png"></div>
-        <div class="mix category-2" data-my-order="4" width="30"><img src="img/co-amz-kf.png"></div>//-->
+        <div class="mix category-1" data-my-order="9">
+            <div id="kiosk" class="item">
+            <a href="#" onMouseOver="pos()">
+            <a class="foo" href="#" onMouseOver="pos()">
+                <img src="img/pos.png" width="300"/>
+                <img src="img/pos02.gif" width="300"/>
+            </a>
+            <div class="expand">POS Kiosk</div>
+            <div id="pos" class="expand">
+                Lead UX/UI Designer for point-of-sale kiosk with barcode scanner. Work included design and prototyping all aspects of interactions and interfaces.
+            </div>
+            </div>
+        </div>  
+          
+        <div class="mix category-1" data-my-order="9">
+            <div id="over" class="item">
+            <a class="foo" href="#" onMouseOver="over()">
+                <img src="img/app-over.png" width="300"/>
+                <img src="img/app-over02.gif" width="300"/>
+            </a>
+            </a>
+            <div class="expand" >Overstat Web App</div>
+            <div id="pos" class="expand">
+                Lead UX/UI design & prototyping for web analytics App. Acquired by IBM.<br>
+                <a href="http://www-03.ibm.com/software/products/en/cx-overstat" target="_blank">View live product at IBM</a>
+            </div>
+            </div>
+        </div>  
+          
+        <div class="mix category-5" data-my-order="7">
+            <div id="genart" class="item">
+            <a class="foo" href="#" onMouseOver="heart()">
+                <img src="img/cc-gen-art.png" width="300"/>
+                <img src="img/cc-gen-art02.gif" width="300"/>
+            </a>
+            <div class="expand" >Creative Coding Spirals</div>
+            <div id="fash" class="expand">
+                Generative Art made with Openframeworks. <br><a href="https://github.com/doloresjoya/mastering-openframeworks/tree/master/Spirals" target="_blank">View source on github.</a>
+            </div>
+            </div>
+        </div>
+        <div class="mix category-5" data-my-order="7">
+            <div id="genart" class="item">
+            <a class="foo" href="#" onMouseOver="heart()">
+                <img src="img/cc-rscan.png" width="300"/>
+                <img src="img/cc-rscan01.gif" width="300"/>
+            </a>
+            <div class="expand" >Creative Coding Video FX</div>
+            <div id="fash" class="expand">
+                    Interactive radial scan with Openframeworks. <br><a href="https://github.com/doloresjoya/mastering-openframeworks/tree/master/VideoRadialScan" target="_blank">View source on github.</a>
+            </div>
+            </div>
+        </div>
+          
+        <div class="mix category-1" data-my-order="0" width="30">
+            <div id="flight" class="item">
+            <a href="#" id="fssa" onMouseOver="flight()">
+                <img src="img/sim.png" width="300" id="sim">
+            </a>
+            <div class="expand">Flight Simulator</div>
+            <div id="fs" class="expand">
+                Interaction programmer for Flight Simulator courseware at FlightSafety Services Inc.
+            </div>
+            </div>
+        </div>
+        <div class="mix category-3" data-my-order="2" width="30">
+            <div id="fashion" class="item">
+                <a href="#" alt="Fashion Tech SF">
+                <img src="img/proj-fashtech.png" onMouseOver="fashTech()" width="300"></a>
+                <div class="expand" >Video Projection Mapping</div>
+                <div id="fs" class="expand">
+                Creative installation with projection mapping on sculpture for fashion runway backdrop.
+            </div>
+            </div>
+        </div>
+        <div class="mix category-3" data-my-order="1" width="30">
+            <div id="eyetracking" class="item">
+            <a class="foo" href="#" onMouseOver="mapTribe()">
+                <img src="img/eye.png" width="300"/>
+                <img src="img/eye02.gif" width="300"/>
+            </a>
+            <div class="expand">Eye Tracking Experience</div>
+            <div id="fash" class="expand">
+                Prototype installation for eye-tracking based interaction. Eye tracking sensor triggers in game action.
+            </div>
+            </div>
+        </div>
+                       
+        
+          
+        <div class="mix category-4" data-my-order="19" width="30">
+            <div class="item">
+            <a href="#" type="button">
+            <img src="img/ico-tool-arduino.png" class="tool" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I prototype & make with Arduino</div>
+            <div style="display: none" id="duino" class="tool img-responsive center-block" >
+                Open-source prototyping platform to create interactive electronic objects.
+            </div>  
+            </div>
+        </div>
+        
+        <div class="mix category-4" data-my-order="16" width="30">
+            <div class="item">
+                <a href="#" type="button">
+            <img src="img/ico-tool-git.png" class="tool" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I share code with Github</div>
+            <div style="display: none" id="cinder" class="tool img-responsive center-block" >
+                <a href="https://github.com/doloresjoya?tab=repositories">View all my source code repo's on Github.</a>
+            </div>
+            </div> 
+        </div>
+          
+        <div class="mix category-4" data-my-order="14" width="30">
+            <div class="item">
+                <a href="#" type="button">
+            <img src="img/ico-tool-cinder.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I code with Cinder</div>
+            <div style="display: none" id="cinder" class="tool" >
+                Cinder is library for professional-quality creative coding in C++.
+            </div>       
+            </div>
+        </div>
+          
+        <div class="mix category-4" data-my-order="11" width="30">
+            <div class="item">
+                <a href="#" type="button">
+            <img src="img/ico-tool-bootstrap.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I code with Boostrap</div>
+            <div style="display: none" id="open" class="tool" >
+            <a href="https://github.com/doloresjoya/doloresjoya.github.io" target="_blank">View my source code repo for this website.</a>
+            </div>
+            </div>
+        </div>     
+        <div class="mix category-4" data-my-order="6" width="30">
+            <div class="item">
+                <a href="#" type="button">
+            <img src="img/ico-tool-firefly.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I protoype with Firefly</div>
+            <div style="display: none" id="open" class="tool" >
+                Firefly bridges the gap between Grasshopper & Arduino.
+            </div>
+            </div>
+        </div>
+        <div class="mix category-4" data-my-order="8" width="30" id="cat4">
+            <div class="item">
+                <a href="#" onMouseOver="" type="button">
+            <img src="img/ico-tool-of.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
+            <div class="tool" style="display: none">Skill: I code with Openframeworks</div>
+            <div style="display: none" id="open" class="tool">
+                OpenFrameworks is an open source C++ toolkit for creative coding.
+            </div>
+            </div>
+        </div>
+        <br><br><br><br>
       </div>          
 </div>
 
-
-            <div class="footer">
-              <p><small>email me - doloresjoya at gmail dot com</small><br>&copy; &middot; Dolores Joya</p>
-            </div>
 <!-- Modal -->
-<div class="modal fade" id="projectionTribal" tabindex="-1" role="dialog" aria-labelledby="projectionTribal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="projectionTribal">Video Projection Mapping</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <!-- carousel-->
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <img src="img/proj-tribe00.png" width="265">
-                  </div>
-                  <div class="item">
-                    <img src="img/proj-tribe.png" width="265">
-                  </div>
-                  <div class="item">
-                    <img src="img/proj-tribe02.png" width="265">
-                  </div>
-                  ...
-                </div>
-              </div>
-              <!-- carousel-->
-      </div>
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">   
       <div class="modal-body">
-        Project description
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">View Planning Process</button>
-      </div>
-    </div>
-  </div>
+        <p align="center">Amazon Lab 126 UI Design Work for Kindle and Fire Phone
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </p>
+            <img src="img/joya-2014-amz_01.png" width="1024" class="img-responsive center-block"> 
+      </div>  
 </div>
-<!-- End Modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"></h4>
-      </div>
-      <div class="modal-body">
-        <img src="img/am-attach.gif">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">View Process</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Modal -->
+    
+    <!--<div class="footer">
+              <br>&copy; &middot; Design and coding by Dolores Joya</p>
+            </div>-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -438,18 +632,5 @@ document.getElementById("demo").innerHTML = d;
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <![endif]-->
 
-
-  <script>
-      wow = new WOW(
-    {
-      boxClass:     'wow',      // default
-      animateClass: 'animated', // default
-      offset:       0,          // default
-      mobile:       true,       // default
-      live:         true        // default
-    }
-  )
-    wow.init();
-  </script> 
   </body>
 </html>

@@ -935,7 +935,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  width: 100% \9;
+  /*width: 100% \9;*/
   max-width: 100%;
   height: auto;
 }
@@ -5438,28 +5438,26 @@ button.close {
 }
 .modal-backdrop.in {
   filter: alpha(opacity=50);
-  opacity: .65;
+  opacity: .85;
 }
 .modal-header {
   min-height: 16.42857143px;
   padding: 5px;
-  border-bottom: 1px solid #1f1f1f;
 }
 .modal-header .close {
   margin-top: -2px;
 }
 .modal-title {
   margin: 0;
-  line-height: 1.42857143;
+  font-size: 20px;
 }
 .modal-body {
   position: relative;
-  padding: 5px;
+  padding: 50px;
 }
 .modal-footer {
   padding: 5px;
   text-align: center;
-  border-top: 1px solid #1f1f1f;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
@@ -5476,7 +5474,7 @@ button.close {
   top: -9999px;
   width: 50px;
   height: 50px;
-  overflow: scroll;
+  overflow: scroll; 
 }
 
 @media (min-width: 500px) {
