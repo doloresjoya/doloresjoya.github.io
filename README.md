@@ -1,1 +1,1 @@
-# doloresjoya.github.io - Sr. UX Designer. JS portfolio website demo & playground.
+# doloresjoya.github.io - JOYA Playground.
