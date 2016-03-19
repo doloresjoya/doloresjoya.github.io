@@ -2,11 +2,7 @@
 <html lang="en">
 <head>          
 <meta charset="utf-8">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="assets/ico/favicon.png">
-<title>Dolores Joya - Sr. UI/UX Designer & Creative Coder Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>JOYA</title>
 <link href="dist/css/bootstrap.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -15,8 +11,7 @@
 html {
 overflow: -moz-scrollbars-vertical; 
 overflow-y: scroll;
-}
-    
+} 
 #Container .mix{
 display: none;
 }
@@ -33,17 +28,17 @@ body{
   font-family: 'Helvetica Neue', arial, sans-serif;
   color: #fff;
 
-  background: url(img/transp_background.png) no-repeat center center fixed;
+  /*background: url(img/transp_background.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
   background-color: #282828;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;*/
 
 }
 
@@ -117,8 +112,8 @@ button{
   display: inline-block;
   padding: .4em .8em;
   background: transparent;
-  border: 0;
-  color: #fff;
+  border: 1px solid gray;
+  color: #ccc;
   font-size: 11px;
   font-weight: 300;
   border-radius: 4px;
@@ -128,7 +123,7 @@ button{
 
 button.active{
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid gray;
   opacity:.25;
 }
 
@@ -357,289 +352,133 @@ setTimeout(function(){
     $('body').addClass('blurred');
 }, 2000);
 */
+    
+</script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.16/processing.min.js"></script>
+<script type="application/processing" data-processing-target="ebhigl">
+ArrayList logo = new ArrayList();
+// Amount of arm segments
+int segAmount = 15;
+// Length of arm segment
+float segLength = 5;
+// Amount of shapes (360/d)
+float d = 10;
+float l = 60;
+
+
+void setup() {
+  size(500, 500);
+  strokeWeight(2);
+  //frameRate(60);
+  smooth();
+  float t = 1;
+  for (int i = 0; i < 360; i+=d) {
+    // Angle, Velocity direction
+    logo.add(new Logo(i+d/4, t*=-1));
+  }
+}
+
+void draw() {
+  background(255);  
+  for (int i = 0; i < logo.size(); i++) {
+    Logo l = (Logo) logo.get(i);
+    l.draw();
+    l.move();  
+  }
+}
+ 
+class Logo {
+  PVector[] pos = new PVector[segAmount];
+  PVector loc;
+  
+  float index, d;
+ 
+  Logo(float ind, float dir) {
+    loc = new PVector(width/2, height/2);
+    index = ind;
+    d = dir;
+    for (int i = 0; i < segAmount; i++) {
+      pos[i] = new PVector(i, i);  
+    }
+  }
+ 
+  void draw() {
+    dragSegment(0, loc);
+    for (int i = 0; i < pos.length-1; i++) {
+      dragSegment(i+1, pos[i]);
+    }   
+  }
+ 
+  void move() {
+    float a = sin(radians((frameCount*d)*6))*120;
+    // Set velocity here as it does not need to be accessed outside the object function
+    PVector vel = new PVector(sin(radians((frameCount*d)+a+index))*5, cos(radians((frameCount*d)+a+index))*5);
+    loc.add(vel);
+  }
+ 
+  void dragSegment(int i, PVector loc) {
+    //atan2(y, x) function, a version of the trigonometric arctangent function, is used to calculate the angle
+    //from any point to the coordinate (0,0). It has two parameters: atan2(y, x).
+    float angle = atan2(loc.y - pos[i].y, loc.x - pos[i].x);
+    pos[i].x = loc.x - cos(angle) * segLength; //generate value from cos and store in x position
+    pos[i].y = loc.y - sin(angle) * segLength; //generate value from sin and store in y position
+    pushMatrix();
+    translate(pos[i].x, pos[i].y);
+    rotate(atan2(loc.y - pos[i].y, loc.x - pos[i].x)); 
+    //Green Arc
+    stroke(82, 239, 197);
+    arc(segLength, segLength, 60, 60, HALF_PI, PI/12); 
+    //Blue Ellipse 1
+    stroke(91, 163, 255);
+    ellipse(0, mouseY/16, segLength+20, 2); //use mouseY value used for y-coordinate of ellipse  
+    //Blue Ellipse 2
+    stroke(91, 163, 255);
+    ellipse(mouseX/16, 0, segLength, 5);  //use mouseX value used for y-coordinate of ellipse  
+    //Gren Ellipse
+    stroke(82, 239, 197);
+    ellipse(0, 0, segLength, segLength);   
+    popMatrix();
+  }
+}
 </script>
 </head>
 <!-- NAVBAR
 ================================================== -->
 <body>
-<div class="background-image"></div>
+<!--<div class="background-image"></div>-->
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        DOLORES JOYA: UX DESIGNER & CREATIVE CODER
-      </a>
+      <a class="navbar-brand" href="#"><img src="img/joya.png" width="50"></a>
 </nav>
-
-
-<!-- Time and Date
-<small><p id="demo" align="right"></p></small>
 
 <script>
 var d = new Date();
-document.getElementById("demo").innerHTML = d;
+document.getElementById("time").innerHTML = d;
 </script>
-//--> 
 
 <center>
 <div>  
       <div class="navbox">
-      <button class="filter" data-filter="all">Show All</button>
-      <!--<button class="sort" data-sort="my-order:asc" onclick="$('.expand').show();"><img src="img/ico-aperature.png" width="35"><br><br>View Details</button>//-->
-          
-      <!--<button class="sort" data-sort="my-order:desc" onclick="$('#date').hide();"><img src="img/ico-ham.png" width="35"><br><br>Device</button>//-->
-      <button class="filter" data-filter=".category-1"><img src="img/ico-ux.png" width="35"><br><br>UI/UX Design</button>
-      <!--<button class="filter" data-filter=".category-6"><img src="img/ico-aperature.png" width="35"><br><br>Projection Maps</button>//-->
-      <button class="filter" data-filter=".category-5"><img src="img/ico-prototype.png" width="35"><br><br>Creative Coding</button>
-      <button class="filter" data-filter=".category-4" onclick="$('.tool').show();"><img src="img/ico-ham.png" width="35"><br><br> Tools</button>
-      <!--<button class="filter" data-filter=".category-2"><img src="img/ico-wearables.png" width="35"><br><br>Wearables</button>//-->
-      <button class="filter" data-filter=".category-3"><img src="img/ico-tech.png" width="35"><br><br>Prototypes</button>
-      <br>
+      
+      <p id="time"></p>
+      <button>CC</button>
+      
       </div>
 
-      <div id="Container">
-        <div class="mix category-1" data-my-order="18" width="30">
-            <div id="appd" class="item">
-            <a class="foo" href="//fast.wistia.net/embed/iframe/szgnsc6ynn?popover=true" class="wistia-popover[height=628,playerColor=7b796a,width=960]" onMouseOver="appData()">
-                <img src="img/aapd01.png" width="300"/>
-                <img src="img/aapd02.gif" width="300"/>
-            </a>
-            <div class="expand">AppDynamics SAAS App</div>
-            <div id="dyn" class="expand" >
-                Principal UI Designer for AppDynamics 2008-2014<br>
-                <a href="//fast.wistia.net/embed/iframe/szgnsc6ynn?popover=true" class="wistia-popover[height=628,playerColor=7b796a,width=960]">AppDynamics Overview Video</a>
-<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script><br>
-                <a href="http://doloresjoya.com/assets/pdf/UI-Design-AD-DJoya.pdf" target="_blank">Core Dashboard Designs PDF</a>
+      <div id="Container">     
+            <div id="canvasesdiv" style="position:relative; width:500px;">
+                <canvas id="ebhigl" style="z-index:1; position:absolute; left:0px;top:0px;" height="500px" width="500px"></canvas>
             </div>
-            </div>
-        </div> 
-        
-        <div class="mix category-3" data-my-order="1" width="30">
-            <div id="eyetracking" class="item">
-            <a class="foo" href="https://youtu.be/L4CapLN7dNI" onMouseOver="mapTribe()" target="_blank">
-                <img src="img/eye.png" width="300"/>
-                <img src="img/eye02.gif" width="300"/>
-            </a>
-            <div class="expand">Eye Tracking Experience</div>
-            <div id="fash" class="expand">
-                Prototype installation for eye-sensing based interactivity.<br>
-                <a href="https://youtu.be/L4CapLN7dNI" target="_blank">Eye gaze movements are used to control the UI</a>
-            </div>
-            </div>
-        </div>
-               
-        <div class="mix category-1" data-my-order="15" width="130" onMouseOver="ppl()" id="pp" style="position: relative; left: 10px;">
-            <div id="paypll" class="item">
-            <a class="foo" href="#" onMouseOver="appData()" id="ppul">
-                <img src="img/pp-usability.png" width="300"/>
-                <img src="img/pp-usability02.gif" width="300"/>
-            </a>
-            <div class="expand">PayPal Usability Lab Studies</div>
-            <div id="lab" class="expand" >
-                Sr. UX Designer for PayPal designing interactions & prototypes for usability lab testing.
-            </div>
-            </div>
-        </div>
-        
-        <div class="mix category-1" data-my-order="13" width="30">
-            <div id="amazon" class="item">
-            <a class="foo" href="#"  onMouseOver="aFire()" data-toggle="modal" data-target="#myModal" type="button">
-                <img src="img/amz-logo.png" width="300" id="fire"/>
-                <img src="img/amz-logo02.gif" width="300"/>
-            </a>
-            <div class="expand">Amazon Fire Phone</div>
-            <div id="amz" class="expand">
-                Visual/UX Design for Amazon Lab 126 designing interaction workflows for the Fire phone.<br>
-                <a href="http://doloresjoya.com/video/Email_Attachment_Open_Panel.mp4" target="_blank">Motion Tilt Ix</a>
-            </div>
-            </div>
-        </div>
-          
-        <div class="mix category-3" data-my-order="20">
-            <div id="earbuds" class="item">
-            <a class="foo" href="#" onMouseOver="wearEar()">
-                <img src="img/joyas-earbuds03.png" width="300"/>
-                <img src="img/joyas-earbuds01.gif" width="300"/>
-            </a>
-            <div class="expand">Case Study: Wireless Earbud Earrings</div>
-            <div id="ear" class="expand">
-                3D Model/rendering for product prototype for wireless music controller.
-            </div>
-            </div>
-        </div>
-        
-        <div class="mix category-1" data-my-order="9">
-            <div id="over" class="item">
-            <a class="foo" href="#" onMouseOver="over()">
-                <img src="img/app-over.png" width="300"/>
-                <img src="img/app-over02.gif" width="300"/>
-            </a>
-            </a>
-            <div class="expand" >Overstat Web App</div>
-            <div id="pos" class="expand">
-                Lead UX/UI design & prototyping for web analytics App. Acquired by IBM.<br>
-                <a href="http://www-03.ibm.com/software/products/en/cx-overstat" target="_blank">View live product at IBM</a>
-            </div>
-            </div>
-        </div>  
-          
-        <div class="mix category-5" data-my-order="7">
-            <div id="genart" class="item">
-            <a class="foo" href="#" onMouseOver="heart()">
-                <img src="img/cc-gen-art.png" width="300"/>
-                <img src="img/cc-gen-art02.gif" width="300"/>
-            </a>
-            <div class="expand" >Creative Coding Spirals</div>
-            <div id="fash" class="expand">
-                Generative Art made with Openframeworks. <br><a href="https://github.com/doloresjoya/mastering-openframeworks/tree/master/Spirals" target="_blank">View source on github.</a>
-            </div>
-            </div>
-        </div>
-        <div class="mix category-5" data-my-order="7">
-            <div id="genart" class="item">
-            <a class="foo" href="https://player.vimeo.com/video/130597936?title=0&byline=0&portrait=0" width="800" height="470" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen onMouseOver="heart()">
-                <img src="img/cc-rscan.png" width="300"/>
-                <img src="img/cc-rscan01.gif" width="300"/>
-            </a>
-            <div class="expand" >Creative Coding Video FX</div>
-            <div id="fash" class="expand">
-                Interactive radial scan with Openframeworks. 
-                <br>
-                <a href="https://github.com/doloresjoya/mastering-openframeworks/tree/master/VideoRadialScan" target="_blank">Source code on github.</a><br>
-                <a href="https://player.vimeo.com/video/130597936?title=0&byline=0&portrait=0" width="800" height="470" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>Video demo of OF App</a>
-            </div>
-            </div>
-        </div>
-          
-        <div class="mix category-1" data-my-order="0" width="30">
-            <div id="flight" class="item">
-            <a href="#" id="fssa" onMouseOver="flight()">
-                <img src="img/sim.png" width="300" id="sim">
-            </a>
-            <div class="expand">Flight Simulator</div>
-            <div id="fs" class="expand">
-                Interaction programmer for Flight Simulator courseware at FlightSafety Services Inc.
-            </div>
-            </div>
-        </div>
-        <div class="mix category-3" data-my-order="2" width="30">
-            <div id="fashion" class="item">
-                <a class="foo" href="https://player.vimeo.com/video/63537186?title=0&byline=0&portrait=0" width="800" height="450" target="_blank" onMouseOver="fashTech()">
-                    <img src="img/proj-fashtech.png" width="300"/>
-                    <img src="img/proj-fashtech02.gif" width="300"/>
-                </a>
-                <div class="expand" >Video Projection Mapping</div>
-                <div id="fs" class="expand">
-                Creative installation with projection mapping for multiple art show & venues.<br>
-                <a href="https://player.vimeo.com/video/63537186?title=0&byline=0&portrait=0" width="800" height="450" target="_blank">View Projection Map Demo Reel</a>
-            </div>
-            </div>
-        </div>
-                
-        <div class="mix category-1" data-my-order="9">
-            <div id="kiosk" class="item">
-            <a href="#" onMouseOver="pos()">
-            <a class="foo" href="#" onMouseOver="pos()">
-                <img src="img/pos.png" width="300"/>
-                <img src="img/pos02.gif" width="300"/>
-            </a>
-            <div class="expand">POS Kiosk</div>
-            <div id="pos" class="expand">
-                Lead UX/UI Designer (contract) for point-of-sale kiosk with barcode scanner.
-            </div>
-            </div>
-        </div>  
-          
-        <div class="mix category-4" data-my-order="19" width="30">
-            <div class="item">
-            <a href="#" type="button">
-            <img src="img/ico-tool-arduino.png" class="tool" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I prototype & make with Arduino</div>
-            <div style="display: none" id="duino" class="tool img-responsive center-block" >
-                Open-source prototyping platform to create interactive electronic objects.
-            </div>  
-            </div>
-        </div>
-        
-        <div class="mix category-4" data-my-order="16" width="30">
-            <div class="item">
-                <a href="#" type="button">
-            <img src="img/ico-tool-git.png" class="tool" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I share code with Github</div>
-            <div style="display: none" id="cinder" class="tool img-responsive center-block" >
-                <a href="https://github.com/doloresjoya?tab=repositories">View all my source code repo's on Github.</a>
-            </div>
-            </div> 
-        </div>
-          
-        <div class="mix category-4" data-my-order="14" width="30">
-            <div class="item">
-                <a href="#" type="button">
-            <img src="img/ico-tool-cinder.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I develop with Cinder</div>
-            <div style="display: none" id="cinder" class="tool" >
-                Cinder is library for professional-quality creative coding in C++.
-            </div>       
-            </div>
-        </div>
-          
-        <div class="mix category-4" data-my-order="11" width="30">
-            <div class="item">
-                <a href="#" type="button">
-            <img src="img/ico-tool-bootstrap.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I develop with Boostrap</div>
-            <div style="display: none" id="open" class="tool" >
-            <a href="https://github.com/doloresjoya/doloresjoya.github.io" target="_blank">View my source code repo for this website.</a>
-            </div>
-            </div>
-        </div>     
-        <div class="mix category-4" data-my-order="6" width="30">
-            <div class="item">
-                <a href="#" type="button">
-            <img src="img/ico-tool-firefly.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I prototype with Firefly</div>
-            <div style="display: none" id="open" class="tool" >
-                Firefly bridges the gap between Grasshopper & Arduino.
-            </div>
-            </div>
-        </div>
-        <div class="mix category-4" data-my-order="8" width="30" id="cat4">
-            <div class="item">
-                <a href="#" onMouseOver="" type="button">
-            <img src="img/ico-tool-of.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I develop with Openframeworks</div>
-            <div style="display: none" id="open" class="tool">
-                OpenFrameworks is an open source C++ toolkit for creative coding.
-            </div>
-            </div>
-        </div>
-        <div class="mix category-4" data-my-order="8" width="30" id="cat4">
-            <div class="item">
-                <a href="#" onMouseOver="" type="button">
-            <img src="img/ico-tool-unreal.png" class="tool img-responsive center-block" width="200" style="display: none"></a>
-            <div class="tool" style="display: none">Skill: I build worlds in Unreal Engine</div>
-            <div style="display: none" id="open" class="tool">
-                Unreal Engine is a game engine developed by Epic Games.
-            </div>
-            </div>
-        </div>
-        <br><br><br><br>
+            <div style="position:relative; width:800px;padding-top:550px;">
+            <script src="https://gist.github.com/doloresjoya/33a938fd2a08152bd2ea.js"></script>
+            </div>      
       </div>          
 </div>
 
-<!-- Modal -->
-<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">   
-      <div class="modal-body">
-        <p align="center">Amazon Lab 126 UI Design Work for Kindle and Fire Phone
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-        </p>
-            <img src="img/joya-2014-amz_01.png" width="1024" class="img-responsive center-block"> 
-      </div>  
-</div>
     
-    <!--<div class="footer">
-              <br>&copy; &middot; Design and coding by Dolores Joya</p>
-            </div>-->
+    <div class="footer">JOYA</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
