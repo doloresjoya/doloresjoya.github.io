@@ -66,91 +66,7 @@ p{line-height: 2em; margin-bottom: 30px;}
 
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.16/processing.min.js"></script>
-<script type="application/processing" data-processing-target="ebhigl">
-ArrayList logo = new ArrayList();
-// Amount of arm segments
-int segAmount = 15;
-// Length of arm segment
-float segLength = 5;
-// Amount of shapes (360/d)
-float d = 10;
-float l = 60;
 
-
-void setup() {
-  size(500, 500);
-  strokeWeight(2);
-  //frameRate(60);
-  smooth();
-  float t = 1;
-  for (int i = 0; i < 360; i+=d) {
-    // Angle, Velocity direction
-    logo.add(new Logo(i+d/4, t*=-1));
-  }
-}
-
-void draw() {
-  background(255);  
-  for (int i = 0; i < logo.size(); i++) {
-    Logo l = (Logo) logo.get(i);
-    l.draw();
-    l.move();  
-  }
-}
- 
-class Logo {
-  PVector[] pos = new PVector[segAmount];
-  PVector loc;
-  
-  float index, d;
- 
-  Logo(float ind, float dir) {
-    loc = new PVector(width/2, height/2);
-    index = ind;
-    d = dir;
-    for (int i = 0; i < segAmount; i++) {
-      pos[i] = new PVector(i, i);  
-    }
-  }
- 
-  void draw() {
-    dragSegment(0, loc);
-    for (int i = 0; i < pos.length-1; i++) {
-      dragSegment(i+1, pos[i]);
-    }   
-  }
- 
-  void move() {
-    float a = sin(radians((frameCount*d)*6))*120;
-    // Set velocity here as it does not need to be accessed outside the object function
-    PVector vel = new PVector(sin(radians((frameCount*d)+a+index))*5, cos(radians((frameCount*d)+a+index))*5);
-    loc.add(vel);
-  }
- 
-  void dragSegment(int i, PVector loc) {
-    //atan2(y, x) function, a version of the trigonometric arctangent function, is used to calculate the angle
-    //from any point to the coordinate (0,0). It has two parameters: atan2(y, x).
-    float angle = atan2(loc.y - pos[i].y, loc.x - pos[i].x);
-    pos[i].x = loc.x - cos(angle) * segLength; //generate value from cos and store in x position
-    pos[i].y = loc.y - sin(angle) * segLength; //generate value from sin and store in y position
-    pushMatrix();
-    translate(pos[i].x, pos[i].y);
-    rotate(atan2(loc.y - pos[i].y, loc.x - pos[i].x)); 
-    //Green Arc
-    stroke(82, 239, 197);
-    arc(segLength, segLength, 60, 60, HALF_PI, PI/12); 
-    //Blue Ellipse 1
-    stroke(91, 163, 255);
-    ellipse(0, mouseY/16, segLength+20, 2); //use mouseY value used for y-coordinate of ellipse  
-    //Blue Ellipse 2
-    stroke(91, 163, 255);
-    ellipse(mouseX/16, 0, segLength, 5);  //use mouseX value used for y-coordinate of ellipse  
-    //Gren Ellipse
-    stroke(82, 239, 197);
-    ellipse(0, 0, segLength, segLength);   
-    popMatrix();
-  }
-}
 </script>
 </head>
 <!-- NAVBAR
@@ -171,7 +87,7 @@ class Logo {
     
       <div id="Container">     
             <div id="canvasesdiv" style="position:relative; width:500px;">
-                <canvas id="ebhigl" style="z-index:1; position:absolute; left:0px;top:0px;" height="500px" width="500px"></canvas>
+                <canvas data-processing-sources="sketches/slaughterhouseGallery/slaughterhouseGallery.pde"></canvas>
             </div>
             <div style="position:relative; width:800px;padding-top:550px;">
             <p>Processing code for generative art logo</p>

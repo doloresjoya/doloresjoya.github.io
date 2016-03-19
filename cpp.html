@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>          
+<meta charset="utf-8">
+<title>JOYA</title>
+<link href="dist/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+
+body{
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  color: #7b7b7b;
+  text-align: left;
+  line-height: 2em;
+}
+
+.container{margin: 25px;}
+.navbox{
+  padding-top: 130px;
+  padding-bottom: 40px;
+  /*background-color: #fff;*/
+}
+
+.item{margin: 25px;}
+
+
+@media all and (min-width: 420px){
+  .container .mix,
+  .container .gap{
+    width: 32%;
+  }
+}
+
+@media all and (min-width: 640px){
+  .container .mix,
+  .container .gap{
+    width: 23.5%;
+  }
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+
+.tool{
+    padding: .4em .8em;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 300;
+    cursor: pointer;
+    opacity: .50;
+    width: 200px;
+    margin: 25px;
+}
+
+h1{font-weight:200; line-height: 3em;}
+p{line-height: 2em; margin-bottom: 30px;}
+</style>
+
+
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<!--<div class="background-image"></div>-->
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="img/joya.png" width="150"></a>
+</nav>
+
+<center>
+<div>  
+      <div class="navbox">
+        Code Examples: <a href="index.html">Processing Generative Art Logo</a> | <a href="jse.html">JS Interaction</a> | <a href="urc.html">Custom C++ for Unreal</a> | <a href="cpp.html">C++ Principles & Practice</a>
+      </div>
+    
+      <div>     
+            <h1>C++ Sandbox</h1>
+            <div style="position:relative; width:800px;">
+            <p>Exercise code I wrote for practice while reading C++ Principles and Practice by bjarne stroustrup. The purpose of learning C++ is to gain an understanding of the fundamental principles of programming and also become more familiar with lower level code that serves as the codebase for Arduino hardware interfacing. </p>
+            <script src="https://gist.github.com/doloresjoya/166010f3a9a5ea3d2340.js"></script>
+            </div>      
+      </div>          
+</div>
+
+    
+    <div class="footer">JOYA</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <![endif]-->
+
+  </body>
+</html>
