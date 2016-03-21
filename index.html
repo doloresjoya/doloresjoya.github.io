@@ -64,90 +64,24 @@ h1{font-weight:200; line-height: 3em;}
 
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.16/processing.min.js"></script>
-<script type="application/processing" data-processing-target="ebhigl">
-ArrayList logo = new ArrayList();
-// Amount of arm segments
-int segAmount = 15;
-// Length of arm segment
-float segLength = 5;
-// Amount of shapes (360/d)
-float d = 10;
-float l = 60;
-
-
-void setup() {
-  size(500, 500);
-  strokeWeight(2);
-  //frameRate(60);
-  smooth();
-  float t = 1;
-  for (int i = 0; i < 360; i+=d) {
-    // Angle, Velocity direction
-    logo.add(new Logo(i+d/4, t*=-1));
-  }
+<script type="application/processing" data-processing-target="syn">
+void setup(){
+  size(400,400);
 }
 
-void draw() {
-  background(255);  
-  for (int i = 0; i < logo.size(); i++) {
-    Logo l = (Logo) logo.get(i);
-    l.draw();
-    l.move();  
-  }
-}
- 
-class Logo {
-  PVector[] pos = new PVector[segAmount];
-  PVector loc;
-  
-  float index, d;
- 
-  Logo(float ind, float dir) {
-    loc = new PVector(width/2, height/2);
-    index = ind;
-    d = dir;
-    for (int i = 0; i < segAmount; i++) {
-      pos[i] = new PVector(i, i);  
-    }
-  }
- 
-  void draw() {
-    dragSegment(0, loc);
-    for (int i = 0; i < pos.length-1; i++) {
-      dragSegment(i+1, pos[i]);
-    }   
-  }
- 
-  void move() {
-    float a = sin(radians((frameCount*d)*6))*120;
-    // Set velocity here as it does not need to be accessed outside the object function
-    PVector vel = new PVector(sin(radians((frameCount*d)+a+index))*5, cos(radians((frameCount*d)+a+index))*5);
-    loc.add(vel);
-  }
- 
-  void dragSegment(int i, PVector loc) {
-    //atan2(y, x) function, a version of the trigonometric arctangent function, is used to calculate the angle
-    //from any point to the coordinate (0,0). It has two parameters: atan2(y, x).
-    float angle = atan2(loc.y - pos[i].y, loc.x - pos[i].x);
-    pos[i].x = loc.x - cos(angle) * segLength; //generate value from cos and store in x position
-    pos[i].y = loc.y - sin(angle) * segLength; //generate value from sin and store in y position
-    pushMatrix();
-    translate(pos[i].x, pos[i].y);
-    rotate(atan2(loc.y - pos[i].y, loc.x - pos[i].x)); 
-    //Green Arc
-    stroke(82, 239, 197);
-    arc(segLength, segLength, 60, 60, HALF_PI, PI/12); 
-    //Blue Ellipse 1
-    stroke(91, 163, 255);
-    ellipse(0, mouseY/16, segLength+20, 2); //use mouseY value used for y-coordinate of ellipse  
-    //Blue Ellipse 2
-    stroke(91, 163, 255);
-    ellipse(mouseX/16, 0, segLength, 5);  //use mouseX value used for y-coordinate of ellipse  
-    //Gren Ellipse
-    stroke(82, 239, 197);
-    ellipse(0, 0, segLength, segLength);   
-    popMatrix();
-  }
+void draw(){
+  background(0);
+  stroke(102);
+  line(0, height/1, width, height/2);
+  noStroke();
+  fill(255, 204);
+  int d = mouseY/2+10;
+  ellipse(mouseX, height/2, d, d);
+  fill(255, 204);
+  int iX = width-mouseX;
+  int iY = height-mouseY;
+  int iD = (iY/2)+10;
+  ellipse(iX, height/2, iD, iD);
 }
 </script>
 </head>
@@ -158,24 +92,24 @@ class Logo {
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="img/joya.png" width="150"></a>
+      <a class="navbar-brand" href="index.html"><img src="img/joya.png" width="150"></a>
 </nav>
 
 <center>
 <div>  
       <div class="navbox">
-        Code Examples: <a href="mc.html">Processing Sketch</a> |  <a href="3dp.html">3D Projection Mapping</a> |  <a href="urc.html">C++ for Unreal</a> | <a href="cpp.html">C++ Principles & Practice</a> | <a href="ard.html">Arduino Wearable</a> | <a href="https://github.com/doloresjoya/mastering-openframeworks.git">Openframeworks Repo</a> | <a href="https://github.com/doloresjoya/programming-processing.git">Processing Repo</a> | <a href="https://github.com/doloresjoya/doloresjoya.github.io">Github Repo Code for this website</a>
+        Code Examples: <a href="mc.html">Processing Sketch</a> |  <a href="3dp.html">3D Projection Mapping</a> |  <a href="urc.html">C++ for Unreal</a> | <a href="cpp.html">C++ Principles & Practice</a> | <a href="ard.html">Arduino Wearable</a> | <a href="https://github.com/doloresjoya/mastering-openframeworks.git">Openframeworks Repo</a> | <a href="https://github.com/doloresjoya/programming-processing.git">Processing Repo</a> | <a href="https://github.com/doloresjoya/doloresjoya.github.io">Github.io website repo</a>
       </div>
     
       <div>     
-            <h1>Generative Art Concept with Processing</h1>
+            <h1>Generative Ix Art Concept with Processing</h1>
             <div id="canvasesdiv" style="position:relative; width:800px;">
-                <canvas id="ebhigl" style="z-index:1; left:0px;top:0px;" height="500px" width="500px"></canvas>
+                <canvas id="syn" style="z-index:1; left:0px;top:0px;" height="500px" width="500px"></canvas>
             </div>
             <div style="position:relative; width:800px;padding-top:50px;">
-            <p>Processing for generative art design concept. This is a rif on a Processing sketch from <a href="http://www.openprocessing.org/sketch/304100">Hypno Strings by Michael Pinn under GNU Creative Commons/Share alike</a>. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing code repository here</a>.</p>
+            <p>Processing for generative art design concept. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing code repository here</a>.</p>
             <img src="img/githubGist.png" width="125">
-            <script src="https://gist.github.com/doloresjoya/33a938fd2a08152bd2ea.js"></script>
+            <script src="https://gist.github.com/doloresjoya/61c2b9d3c9e3f68d57ce.js"></script>
             </div>      
       </div>          
 </div>
