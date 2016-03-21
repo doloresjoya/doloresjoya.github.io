@@ -9,7 +9,6 @@
 body{
   font-family: 'Helvetica Neue', arial, sans-serif;
   color: #7b7b7b;
-  text-align: left;
   line-height: 2em;
 }
 
@@ -17,7 +16,6 @@ body{
 .navbox{
   padding-top: 130px;
   padding-bottom: 40px;
-  /*background-color: #fff;*/
 }
 
 .item{margin: 25px;}
@@ -46,6 +44,8 @@ body{
   margin-right: 110px;
 }
 
+p{text-align: left;line-height: 2em; margin-bottom: 30px;}
+
 .tool{
     padding: .4em .8em;
     background: transparent;
@@ -60,7 +60,6 @@ body{
 }
 
 h1{font-weight:200; line-height: 3em;}
-p{line-height: 2em; margin-bottom: 30px;}
 </style>
 
  
@@ -70,25 +69,30 @@ p{line-height: 2em; margin-bottom: 30px;}
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header">
+<div class="navbar-header">
       <a class="navbar-brand" href="#"><img src="img/joya.png" width="150"></a>
 </nav>
 
-<center>
-<div class="container">  
-      <div class="navbox">
+    <center>
+    <div>  
+          <div class="navbox">
         Code Examples: <a href="index.html">Processing Gen Art Logo</a> | <a href="jse.html">HTML/CSS/JS Ix</a> | <a href="3dp.html">3D Projection Mapping</a> |  <a href="urc.html">C++ for Unreal</a> | <a href="cpp.html">C++ Principles & Practice</a> | <a href="ard.html">Arduino Wearable</a> | <a href="https://github.com/doloresjoya/mastering-openframeworks.git">Openframeworks Repo</a> | <a href="https://github.com/doloresjoya/programming-processing.git">Processing Repo</a>
       </div>
 
-      <div>     
-            <h1>HTML/CSS/JS Ix</h1>
-            <div style="position:top; width:800px;">
-            <p data-height="589" data-theme-id="22842" data-slug-hash="95891647664e7657b3feef2d471e669c" data-default-tab="result" data-user="djoya" class="codepen">See the Pen <a href="http://codepen.io/djoya/pen/95891647664e7657b3feef2d471e669c/">Cards Topo</a> by dolores joya (<a href="http://codepen.io/djoya">@djoya</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            <p>Javascript interaction code I wrote to visualize the topography for a ui container component. Cards expand and rotate onLoad. Rendered SVG's animated with Greensock JS Libs.</p>
-          <script src="https://gist.github.com/doloresjoya/aa1eea125ac0ff1b79ff.js"></script>
-          </div>
-      </div>          
+          <div>     
+                <h1>HTML/CSS/JS Ix</h1>
+                <div id="canvasesdiv" style="position:relative; width:800px;">
+                    <p data-height="589" data-theme-id="22842" data-slug-hash="95891647664e7657b3feef2d471e669c" data-default-tab="result" data-user="djoya" class="codepen">See the Pen <a href="http://codepen.io/djoya/pen/95891647664e7657b3feef2d471e669c/">Cards Topo</a> by dolores joya (<a href="http://codepen.io/djoya">@djoya</a>) on <a href="http://codepen.io">CodePen</a>.                   </p>
+                </div>
+                <div style="position:relative; width:800px;padding-top:50px;">
+                <script async src="http://assets.codepen.io/assets/embed/ei.js"></script>
+                <p>Javascript interaction code I wrote to visualize a ui container component set. Elements expand and rotate onLoad to show layering. SVG's are rendered and animated with Greensock JS Libs.</p>
+                <img src="img/githubGist.png" width="125">
+                <script src="https://gist.github.com/doloresjoya/aa1eea125ac0ff1b79ff.js"></script>
+                </div>      
+          </div>          
+    </div>
+     
 </div>
 
     
