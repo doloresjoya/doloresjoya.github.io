@@ -1,1 +1,1 @@
-# doloresjoya.github.io - JOYA Playground.
+# doloresjoya.github.io - code for my projects & playground
