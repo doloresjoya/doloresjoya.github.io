@@ -66,22 +66,21 @@ h1{font-weight:200; line-height: 3em;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.16/processing.min.js"></script>
 <script type="application/processing" data-processing-target="syn">
 void setup(){
-  size(400,400);
-}
-
-void draw(){
-  background(0);
+  size(400, 400);
+  smooth();
   noStroke();
-  fill(255, 204);
-  int d = mouseY/2+10;
-  ellipse(mouseX, height/2, d, d);
-  fill(255, 204);
-  int iX = width-mouseX;
-  int iY = height-mouseY;
-  int iD = (iY/2)+10;
-  //ellipse center mode
-  //ellipse(center x, center y, width, height)
-  ellipse(iX, height/2, iD, iD);
+  fill(255, 40);
+  background(0);
+}
+void draw(){
+  if(mousePressed == true){
+    fill(255, 89, 89, 50);
+  } else {
+    fill(255, 100);
+  }
+  for(int i = 0; i < 6; i++){
+    ellipse(mouseX + i*i, mouseY, i, i);
+  }
 }
 </script>
 </head>
@@ -102,12 +101,12 @@ void draw(){
       </div>
     
       <div>     
-            <h1>Processing Ix</h1>
+            <h1>Welcome</h1>
             <div id="canvasesdiv" style="position:relative; width:800px;">
                 <canvas id="syn" style="z-index:1; left:0px;top:0px;" height="500px" width="500px"></canvas>
             </div>
             <div style="position:relative; width:800px;padding-top:50px;">
-            <p>Processing for generative art design concept. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing code repository here</a>. This Processing sketch is embedded in this page via Javascript. Interested to learn about <a href="http://processingjs.org/articles/jsQuickStart.html">Processing.js</a>?</p>
+            <p>This site is a sampling of code I am working with and code I wrote myself. The example above is written in Processing. A language I use to prototype. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing github code repository here</a>. This Processing sketch is embedded in this page via Javascript.</p>
             <img src="img/githubGist.png" width="125">
             <script src="https://gist.github.com/doloresjoya/61c2b9d3c9e3f68d57ce.js"></script>
             </div>      
