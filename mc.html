@@ -70,11 +70,13 @@ h1{font-weight:200; line-height: 3em;}
       strokeWeight(8);
       smooth();
       background(204, 123, 12);
+      y = new int[width];
     }
     void draw(){
       line(mouseX, mouseY, pmouseX, pmouseY);
       translate(mouseX, mouseY);
       ellipse(0,0,33,33);
+      println(y);
     }
     </script>
 </head>
@@ -91,7 +93,7 @@ h1{font-weight:200; line-height: 3em;}
 <center>
 <div>  
       <div class="navbox">
-        Code Examples: <a href="mc.html">Processing Ix</a> |  <a href="3dp.html">3D Projection Mapping</a> |  <a href="cpp.html">C++ Principles & Practice</a> | <a href="ard.html">Arduino Wearable</a> | <a href="https://github.com/doloresjoya/mastering-openframeworks.git">Openframeworks Repo</a> | <a href="https://github.com/doloresjoya/programming-processing.git">Processing Repo</a> | <a href="https://github.com/doloresjoya/doloresjoya.github.io">doloresjoya.github.io Website repo</a>
+        Code Examples: <a href="mc.html">Processing Ix</a> |  <a href="sea.html">Data Viz Simple</a> |  <a href="cpp.html">C++ Principles & Practice</a> | <a href="ard.html">Arduino Wearable</a> | <a href="https://github.com/doloresjoya/mastering-openframeworks.git">Openframeworks Repo</a> | <a href="https://github.com/doloresjoya/programming-processing.git">Processing Repo</a> | <a href="https://github.com/doloresjoya/doloresjoya.github.io">doloresjoya.github.io Website repo</a>
       </div>
     
       <div>     
@@ -100,7 +102,7 @@ h1{font-weight:200; line-height: 3em;}
                 <canvas id="processing-canvas" style="z-index:1; left:0px;top:0px;" height="500px" width="500px"></canvas>
             </div>
             <div style="position:relative; width:800px;padding-top:50px;">
-            <p>Processing sketch which takes your mouse position and draws an ellipse with a connected line at that position. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing code repository here</a>. This Processing sketch is embedded in this page via Javascript. Interested to learn about <a href="http://processingjs.org/articles/jsQuickStart.html">Processing.js</a>?</p>
+            <p>Processing sketch which takes your mouse position and draws an ellipse with a connected line at that position. You can view <a href="https://github.com/doloresjoya/programming-processing">my full Processing code repository here</a>. This Processing sketch is embedded in this page via Javascript.</p>
             <img src="img/githubGist.png" width="125">
             <script src="https://gist.github.com/doloresjoya/e4fd1b080133d021c3a0.js"></script>
             </div>      
